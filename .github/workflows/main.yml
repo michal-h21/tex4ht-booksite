@@ -21,7 +21,7 @@ jobs:
           run: |
             set -euxo pipefail
             rm -rf out
-            make4ht -c config.cfg -lj index -a notice -d out book.tex
+            make4ht -c config.cfg -lj index -a notice -d out document.tex
 
       - name: Publish the web pages
         uses: peaceiris/actions-gh-pages@v3
