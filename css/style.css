@@ -38,6 +38,10 @@ main.main-content, .maketitle{
   /* border: 1px solid #ccc; */
 }
 
+.maketitle{
+  width: auto;
+}
+
 
 header {
   position: fixed;
@@ -55,7 +59,7 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: normal;
 }
 
@@ -170,7 +174,7 @@ body.no-scroll {
     transform: translateX(0);
   }
 
-  main.main-content {
+  main.main-content, .maketitle {
     margin: 0;
     margin-top: var(--header-height);
   }
@@ -186,6 +190,9 @@ body.no-scroll {
     left: 0;
     margin: 1em 0;
 
+  }
+  header h1{
+    font-size: 1rem;
   }
 }
 
