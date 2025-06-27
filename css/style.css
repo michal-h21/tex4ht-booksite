@@ -139,7 +139,9 @@ nav.TOC span.chapterToc.clicked ~ span.chapterToc ~ span.sectionToc{
   width: 40px;
   height: 40px;
   cursor: pointer;
+  font-size: 2rem;
   gap: 6px; 
+  margin-left: auto;
 }
 
 .hamburger span {
