@@ -15,10 +15,6 @@
   box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
-* {
-  margin: 0;
-}
 
 nav.TOC > span, nav.minitoc > span{display: block;}
 
