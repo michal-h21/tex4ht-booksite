@@ -1,0 +1,182 @@
+:root{
+  --maintoc-width: 20ch;
+  --content-padding: 2ch;
+  --maintoc-padding: var(--content-padding);
+  --maintoc-total: calc(var(--maintoc-width));
+  --main-content-width: 80ch;
+  --header-height: 6ch;
+  --footer-height: 6ch;
+  --sectiontoc-padding: calc(var(--maintoc-total) + var(--main-content-width) + var(--content-padding) * 2);
+  --sectiontoc-width: var(--maintoc-width);
+  --page-width: calc(var(--maintoc-total) + var(--main-content-width) + var(--content-padding) * 2 + var(--sectiontoc-width) + var(--content-padding) * 2);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+nav.TOC > span, nav.minitoc > span{display: block;}
+
+body {
+  margin: 1rem;
+  max-width: 100%;
+}
+
+main.main-content {
+/* body { */
+  padding: var(--content-padding);
+  margin-left: var(--maintoc-total);
+  margin-top: var(--header-height);
+  width: 100%;
+  max-width: var(--main-content-width);
+  border: 1px solid #ccc;
+}
+
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background-color: #ddd;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  transition: transform 0.3s ease;
+}
+
+/* header: hidden, shown only by JS if needed*/
+footer {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--footer-height);
+  background-color: #ddd;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+nav.TOC {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: var(--maintoc-width);
+  height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+  background-color: #f0f0f0;
+  overflow-y: scroll;
+  scrollbar-color: #888 #f0f0f0;
+  scrollbar-width: thin;
+  padding: var(--maintoc-padding);
+  z-index: 900;
+}
+
+
+
+.sectionTOCS{
+  padding: var(--content-padding);
+  position: fixed;
+  top: var(--header-height);
+  left: var(--sectiontoc-padding);
+  max-width: var(--sectiontoc-width);
+}
+
+nav.TOC, .sectionTOCS{
+  transition: transform 0.3s ease;
+  transform: translateY(0); /* default state */
+}
+
+ .sectionTOCS .likesectionToc, .sectionTOCS .sectionToc,
+ .sectionTOCS .likesubsectionToc, .sectionTOCS .subsectionToc,
+ .sectionTOCS .likesubsectionToc, .sectionTOCS .subsectionToc,
+ .sectionTOCS .likesubsubsectionToc, .sectionTOCS .subsubsectionToc {margin-left:0em;}
+
+
+
+nav.TOC span.chapterToc {
+  display: block;
+  margin-bottom: 10px;
+}
+
+nav.TOC span.sectionToc {
+  display: none;
+  margin-left: 20px;
+}
+
+nav.TOC span.chapterToc.clicked ~ span.sectionToc {
+  display: block;
+}
+nav.TOC span.chapterToc.clicked ~ span.chapterToc ~ span.sectionToc{
+  display: none;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  gap: 6px; 
+}
+
+.hamburger span {
+  display: inline-flex;
+  width: 24px;
+  height: 3px;
+  background-color: black;
+  border-radius: 2px;
+
+}
+
+/* this should prevent scrolling when the hamburer menu is opened */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Hide nav.TOC on smaller screens */
+/* We cannot use variables or calc, so the width is hardcoded */
+@media (max-width: 124ch) {
+  nav.TOC {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  nav.TOC.open {
+    transform: translateX(0);
+  }
+
+  main.main-content {
+    margin: 0;
+    margin-top: var(--header-height);
+  }
+
+  .hamburger {
+    display: flex;
+    /* margin-left: auto; */
+  }
+  .sectionTOCS{
+    position: relative;
+    top: 0;
+    padding: 0;
+    left: 0;
+    margin: 1em 0;
+
+  }
+}
+
+
