@@ -27,14 +27,15 @@ body {
   max-width: 100%;
 }
 
-main.main-content {
+main.main-content, .maketitle{
 /* body { */
   padding: var(--content-padding);
   margin-left: var(--maintoc-total);
   margin-top: var(--header-height);
+  margin-bottom: var(--footer-height);
   width: 100%;
   max-width: var(--main-content-width);
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
 }
 
 
@@ -50,6 +51,12 @@ header {
   align-items: center;
   padding: 0 1rem;
   transition: transform 0.3s ease;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: normal;
 }
 
 /* header: hidden, shown only by JS if needed*/
@@ -73,7 +80,8 @@ nav.TOC {
   top: var(--header-height);
   left: 0;
   width: var(--maintoc-width);
-  height: calc(100vh - var(--header-height));
+  /* height: calc(100vh - var(--header-height)); */
+  height: 100vh;
   overflow-y: auto;
   background-color: #f0f0f0;
   overflow-y: scroll;
