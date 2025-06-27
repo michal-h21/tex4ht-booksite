@@ -1,5 +1,5 @@
 :root{
-  --maintoc-width: 20ch;
+  --maintoc-width: 30ch;
   --content-padding: 2ch;
   --maintoc-padding: var(--content-padding);
   --maintoc-total: calc(var(--maintoc-width));
@@ -8,17 +8,22 @@
   --footer-height: 6ch;
   --sectiontoc-padding: calc(var(--maintoc-total) + var(--main-content-width) + var(--content-padding) * 2);
   --sectiontoc-width: var(--maintoc-width);
-  --page-width: calc(var(--maintoc-total) + var(--main-content-width) + var(--content-padding) * 2 + var(--sectiontoc-width) + var(--content-padding) * 2);
+  --maintoc-background: #2E3A3F;
+  --maintoc-padding: 2ch;
+  --maintoc-color: #E6F0EF;
+  --maintoc-hover: #00AFA0;
+  --body-padding: 2ch;
+  --header-background: #B8D8D5;
+  --footer-background: #B8D8D5;
+  --header-color: #2C3E50;  
+  --header-height: 3rem;
+  --header-padding: 1ch; --page-width: calc(var(--maintoc-total) + var(--main-content-width) + var(--content-padding) * 2 + var(--sectiontoc-width) + var(--content-padding) * 2);
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
-* {
-  margin: 0;
-}
 
 nav.TOC > span, nav.minitoc > span{display: block;}
 
@@ -38,6 +43,10 @@ main.main-content, .maketitle{
   /* border: 1px solid #ccc; */
 }
 
+.maketitle{
+  width: auto;
+}
+
 
 header {
   position: fixed;
@@ -45,7 +54,7 @@ header {
   left: 0;
   right: 0;
   height: var(--header-height);
-  background-color: #ddd;
+  background-color: var(--header-background);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -53,9 +62,13 @@ header {
   transition: transform 0.3s ease;
 }
 
+h1,h2,h3,h4,h5,h6 {
+  margin-top: 1rem;
+}
+
 header h1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: normal;
 }
 
@@ -67,7 +80,7 @@ footer {
   left: 0;
   right: 0;
   height: var(--footer-height);
-  background-color: #ddd;
+  background-color: var(--footer-background);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -83,12 +96,23 @@ nav.TOC {
   /* height: calc(100vh - var(--header-height)); */
   height: 100vh;
   overflow-y: auto;
-  background-color: #f0f0f0;
+  background-color: var(--maintoc-background);
+  color: var(--maintoc-color);
   overflow-y: scroll;
   scrollbar-color: #888 #f0f0f0;
   scrollbar-width: thin;
   padding: var(--maintoc-padding);
   z-index: 900;
+}
+
+nav.TOC a {
+  color: var(--maintoc-color);
+  text-decoration: none;
+}
+
+nav.TOC a:hover, nav.TOC a:focus {
+  color: var(--maintoc-hover);
+  text-decoration: underline;
 }
 
 
@@ -139,17 +163,11 @@ nav.TOC span.chapterToc.clicked ~ span.chapterToc ~ span.sectionToc{
   width: 40px;
   height: 40px;
   cursor: pointer;
+  font-size: 2rem;
   gap: 6px; 
+  margin-left: auto;
 }
 
-.hamburger span {
-  display: inline-flex;
-  width: 24px;
-  height: 3px;
-  background-color: black;
-  border-radius: 2px;
-
-}
 
 /* this should prevent scrolling when the hamburer menu is opened */
 body.no-scroll {
@@ -168,7 +186,7 @@ body.no-scroll {
     transform: translateX(0);
   }
 
-  main.main-content {
+  main.main-content, .maketitle {
     margin: 0;
     margin-top: var(--header-height);
   }
@@ -184,6 +202,9 @@ body.no-scroll {
     left: 0;
     margin: 1em 0;
 
+  }
+  header h1{
+    font-size: 1rem;
   }
 }
 
