@@ -1,17 +1,11 @@
-# Presentation Template Repository
+# Book Site Template Repository
 
-This repository provides a structured LaTeX template for preparing presentations, handouts, and full-text documentation from a single source.
-
-This template is designed for presentations that need more than just slides. It
-lets you create both the talk itself and a more detailed handout with notes and
-commentary. That way, you can generate everything from a single source—both the
-material for the live talk and something meaningful for people who didn’t
-attend.
+This repository provides a structured LaTeX template for website version of books. 
 
 
 ## Documentation
 
-You can find the documentation and usage examples [here](https://www.kodymirus.cz/tex4ht-booksite/).
+You can find the documentation and usage example [here](https://www.kodymirus.cz/tex4ht-booksite/).
 
 
 ## License
