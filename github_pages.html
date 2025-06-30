@@ -8,14 +8,12 @@
 <meta content='index.tex' name='src' /> 
 <link href='css/style.css' rel='stylesheet' type='text/css' /> 
  
-<script src='js/toc.js' type='text/javascript'></script> 
- 
 <script src='js/headerfooter.js' type='text/javascript'></script> 
 </head><body>
 <header class='header-bar'> 
 <h1><a href='index.html'>TeX4ht Template for Online Books</a></h1><button class='hamburger'>≡</button> 
-</header> <nav class='TOC'><span class='chapterToc'><a href='introduction.html#introduction' id='QQ2-2-1'>1 Introduction</a></span><span class='chapterToc'><a href='basic_usage.html#basic-usage' id='QQ2-3-2'>2 Basic Usage</a></span><span class='sectionToc'><a href='basic_usage.html#create-a-new-github-repository' id='QQ2-3-3'>2.1 Create a New Github Repository</a></span><span class='chapterToc'><a href='compiling_the_book.html#compiling-the-book' id='QQ2-4-5'>3 Compiling
-the Book</a></span><span class='chapterToc'><a href='automated_html_output.html#automated-html-output' id='QQ2-5-6'>4 Automated HTML Output</a></span><span class='sectionToc'><a href='automated_html_output.html#automatic-html-build' id='QQ2-5-7'>4.1 Automatic HTML Build</a></span><span class='chapterToc'><a href='#github-pages' id='QQ2-6-9'>5 Github
+</header> <nav class='TOC'><span class='chapterToc'><a href='introduction.html#introduction' id='QQ2-2-1'>1 Introduction</a></span><span class='chapterToc'><a href='basic_usage.html#basic-usage' id='QQ2-3-2'>2 Basic Usage</a></span><span class='chapterToc'><a href='compiling_the_book.html#compiling-the-book' id='QQ2-4-5'>3 Compiling
+the Book</a></span><span class='chapterToc'><a href='automated_html_output.html#automated-html-output' id='QQ2-5-6'>4 Automated HTML Output</a></span><span class='chapterToc'><a href='#github-pages' id='QQ2-6-9'>5 Github
 Pages</a></span><span class='sectionToc'><a href='#github-actions-interface' id='QQ2-6-10'>5.1 Github Actions Interface</a></span><span class='sectionToc'><a href='#errors' id='QQ2-6-11'>5.2 Errors</a></span><span class='sectionToc'><a href='#setup-github-pages' id='QQ2-6-12'>5.3 Setup Github Pages</a></span>
  
    
@@ -25,26 +23,26 @@ Pages</a></span><span class='sectionToc'><a href='#github-actions-interface' id=
 <h2 class='chapterHead' id='github-pages'><span class='titlemark'>Chapter 5</span><br /><a id='x6-80005'></a>Github Pages</h2>
    
 <h3 class='sectionHead' id='github-actions-interface'><span class='titlemark'>5.1   </span> <a id='x6-90005.1'></a>Github Actions Interface</h3>
-<!-- l. 131 --><p class='noindent'><img alt='PIC' src='img/github-actions.png' />
-</p><!-- l. 133 --><p class='indent'>   After you push changes to the <span class='ec-lmtt-10'>main </span>branch, you can check the <span class='ec-lmtt-10'>Actions </span>tab in
+<!--  l. 131  --><p class='noindent'><img alt='PIC' src='img/github-actions.png' />
+</p><!--  l. 133  --><p class='indent'>   After you push changes to the <span class='ec-lmtt-10'>main </span>branch, you can check the <span class='ec-lmtt-10'>Actions </span>tab in
 your Github repository. It shows the status of the workflow, including whether it ran
 successfully or if there were any errors.
 
 </p>   
 <h3 class='sectionHead' id='errors'><span class='titlemark'>5.2   </span> <a id='x6-100005.2'></a>Errors</h3>
-<!-- l. 138 --><p class='noindent'><img alt='PIC' src='img/github-error.png' />
-</p><!-- l. 141 --><p class='indent'>   You can also check the logs of the workflow run to see what went wrong. If you
+<!--  l. 138  --><p class='noindent'><img alt='PIC' src='img/github-error.png' />
+</p><!--  l. 141  --><p class='indent'>   You can also check the logs of the workflow run to see what went wrong. If you
 encounter an error, it will be displayed in the logs, and you can use that information
 to debug the issue.
-</p><!-- l. 145 --><p class='indent'>   In this case, the filename of the TeX file was incorrect. I had to fix the filename in
+</p><!--  l. 145  --><p class='indent'>   In this case, the filename of the TeX file was incorrect. I had to fix the filename in
 the GitHub Actions YAML file.
 
 </p>   
 <h3 class='sectionHead' id='setup-github-pages'><span class='titlemark'>5.3   </span> <a id='x6-110005.3'></a>Setup Github Pages</h3>
-<!-- l. 149 --><p class='noindent'><img alt='PIC' src='img/github-pages.png' />
-</p><!-- l. 151 --><p class='indent'>   Once the workflow runs successfully, you can set up GitHub Pages to serve the
+<!--  l. 149  --><p class='noindent'><img alt='PIC' src='img/github-pages.png' />
+</p><!--  l. 151  --><p class='indent'>   Once the workflow runs successfully, you can set up GitHub Pages to serve the
 <span class='ec-lmtt-10'>gh-pages </span>branch.
-</p><!-- l. 153 --><p class='indent'>   All output files produced by <span class='ec-lmtt-10'>make4ht </span>will be served on the web. They will be
+</p><!--  l. 153  --><p class='indent'>   All output files produced by <span class='ec-lmtt-10'>make4ht </span>will be served on the web. They will be
 available at: <span class='obeylines-h'><code class='verb'>https://username.github.io/repo/</code></span>, where <span class='ec-lmtt-10'>username </span>is your GitHub
 username and <span class='ec-lmtt-10'>repo </span>is the name of your repository.
                                                                   

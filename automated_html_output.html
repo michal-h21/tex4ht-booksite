@@ -8,15 +8,13 @@
 <meta content='index.tex' name='src' /> 
 <link href='css/style.css' rel='stylesheet' type='text/css' /> 
  
-<script src='js/toc.js' type='text/javascript'></script> 
- 
 <script src='js/headerfooter.js' type='text/javascript'></script> 
 </head><body>
 <header class='header-bar'> 
 <h1><a href='index.html'>TeX4ht Template for Online Books</a></h1><button class='hamburger'>≡</button> 
-</header> <nav class='TOC'><span class='chapterToc'><a href='introduction.html#introduction' id='QQ2-2-1'>1 Introduction</a></span><span class='chapterToc'><a href='basic_usage.html#basic-usage' id='QQ2-3-2'>2 Basic Usage</a></span><span class='sectionToc'><a href='basic_usage.html#create-a-new-github-repository' id='QQ2-3-3'>2.1 Create a New Github Repository</a></span><span class='chapterToc'><a href='compiling_the_book.html#compiling-the-book' id='QQ2-4-5'>3 Compiling
+</header> <nav class='TOC'><span class='chapterToc'><a href='introduction.html#introduction' id='QQ2-2-1'>1 Introduction</a></span><span class='chapterToc'><a href='basic_usage.html#basic-usage' id='QQ2-3-2'>2 Basic Usage</a></span><span class='chapterToc'><a href='compiling_the_book.html#compiling-the-book' id='QQ2-4-5'>3 Compiling
 the Book</a></span><span class='chapterToc'><a href='#automated-html-output' id='QQ2-5-6'>4 Automated HTML Output</a></span><span class='sectionToc'><a href='#automatic-html-build' id='QQ2-5-7'>4.1 Automatic HTML Build</a></span><span class='chapterToc'><a href='github_pages.html#github-pages' id='QQ2-6-9'>5 Github
-Pages</a></span><span class='sectionToc'><a href='github_pages.html#github-actions-interface' id='QQ2-6-10'>5.1 Github Actions Interface</a></span><span class='sectionToc'><a href='github_pages.html#errors' id='QQ2-6-11'>5.2 Errors</a></span><span class='sectionToc'><a href='github_pages.html#setup-github-pages' id='QQ2-6-12'>5.3 Setup Github Pages</a></span>
+Pages</a></span>
  
    
 </nav> 
@@ -26,9 +24,9 @@ Pages</a></span><span class='sectionToc'><a href='github_pages.html#github-actio
 This chapter explains how  <a href='https://docs.github.com/en/actions/writing-workflows/quickstart'>GitHub Actions</a> is used to automatically generate and
 publish an HTML version of the handout whenever changes are pushed to the <span class='ec-lmtt-10'>main</span>
 branch.
-<!-- l. 57 --><p class='indent'>   The output is built using <span class='ec-lmtt-10'>make4ht </span>and published to the <span class='ec-lmtt-10'>gh-pages </span>branch, making
+<!--  l. 57  --><p class='indent'>   The output is built using <span class='ec-lmtt-10'>make4ht </span>and published to the <span class='ec-lmtt-10'>gh-pages </span>branch, making
 it easy to share a web-readable version of the talk.
-</p><!-- l. 60 --><p class='indent'>   Key parts of the workflow that builds and publishes the HTML:
+</p><!--  l. 60  --><p class='indent'>   Key parts of the workflow that builds and publishes the HTML:
                                                                   
 
                                                                   
@@ -46,11 +44,11 @@ it easy to share a web-readable version of the talk.
     github_token: ${{ secrets.GITHUB_TOKEN }}
     publish_dir: ./out
 </pre>
-<!-- l. 74 --><p class='nopar'>
-</p><!-- l. 78 --><p class='indent'>   The workflow is defined in the <span class='ec-lmtt-10'>.github/workflows/main.yml </span>file. You can edit
+<!--  l. 74  --><p class='nopar'>
+</p><!--  l. 78  --><p class='indent'>   The workflow is defined in the <span class='ec-lmtt-10'>.github/workflows/main.yml </span>file. You can edit
 this file to customize the build process, such as changing the options passed to
 <span class='ec-lmtt-10'>make4ht</span>.
-</p><!-- l. 81 --><p class='indent'>   It uses two GitHub Actions:  <a href='https://github.com/xu-cheng/texlive-action'>xu-cheng/texlive-action</a> and  <a href='https://github.com/peaceiris/actions-gh-pages'>peaceiris/actions-gh-pages</a>.
+</p><!--  l. 81  --><p class='indent'>   It uses two GitHub Actions:  <a href='https://github.com/xu-cheng/texlive-action'>xu-cheng/texlive-action</a> and  <a href='https://github.com/peaceiris/actions-gh-pages'>peaceiris/actions-gh-pages</a>.
 The first one lets you use any command available in the TeX Live installation, such
 as <span class='ec-lmtt-10'>make4ht </span>or <span class='ec-lmtt-10'>lualatex</span>. The second one publishes the contents of a specified
 directory to the <span class='ec-lmtt-10'>gh-pages </span>branch of your repository, which is used by GitHub Pages
@@ -58,13 +56,13 @@ to serve static content.
 
 </p>   
 <h3 class='sectionHead' id='automatic-html-build'><span class='titlemark'>4.1   </span> <a id='x5-60004.1'></a>Automatic HTML Build</h3>
-<!-- l. 90 --><p class='noindent'>Changes pushed to <span class='ec-lmtt-10'>main </span>branch trigger a GitHub Actions workflow that:
+<!--  l. 90  --><p class='noindent'>Changes pushed to <span class='ec-lmtt-10'>main </span>branch trigger a GitHub Actions workflow that:
 </p>     
 <ul class='itemize1'>
 <li class='itemize'>Compiles <span class='ec-lmtt-10'>handout.tex </span>to HTML using <span class='ec-lmtt-10'>make4ht</span>
 </li>
 <li class='itemize'>Publishes the output to the <span class='ec-lmtt-10'>gh-pages </span>branch</li></ul>
-<!-- l. 97 --><p class='indent'>   The following command is used for the compilation:
+<!--  l. 97  --><p class='indent'>   The following command is used for the compilation:
                                                                   
 
                                                                   
@@ -72,13 +70,13 @@ to serve static content.
 <pre class='verbatim' id='verbatim-3'>
 make4ht -lj index -a debug -d out handout.tex
 </pre>
-<!-- l. 101 --><p class='nopar'>
-</p><!-- l. 104 --><p class='indent'>   This builds the HTML into the <span class='ec-lmtt-10'>out/ </span>folder, which is then published using
+<!--  l. 101  --><p class='nopar'>
+</p><!--  l. 104  --><p class='indent'>   This builds the HTML into the <span class='ec-lmtt-10'>out/ </span>folder, which is then published using
 the <span class='ec-lmtt-10'>peaceiris/actions-gh-pages </span>action, specified by the <span class='ec-lmtt-10'>publish_dir</span>
 setting.
 
 </p>
-<!-- l. 109 --><p class='noindent'><span class='paragraphHead' id='why-j-index'><a id='x5-7000'></a><span class='ec-lmbx-10'>Why </span><span class='ec-lmtk-10'>-j index</span><span class='ec-lmbx-10'>?</span></span>
+<!--  l. 109  --><p class='noindent'><span class='paragraphHead' id='why-j-index'><a id='x5-7000'></a><span class='ec-lmbx-10'>Why </span><span class='ec-lmtk-10'>-j index</span><span class='ec-lmbx-10'>?</span></span>
 </p>     
 <ul class='itemize1'>
 <li class='itemize'>The <span class='ec-lmtt-10'>-lj index </span>option is a shorthand for <span class='ec-lmtt-10'>-l -j index</span>
@@ -86,7 +84,7 @@ setting.
 <li class='itemize'>The <span class='ec-lmtt-10'>-j index </span>option sets the HTML output filename to <span class='ec-lmtt-10'>index.html</span>
 </li>
 <li class='itemize'>     
-<!-- l. 113 --><p class='noindent'>This lets you use clean URLs like:
+<!--  l. 113  --><p class='noindent'>This lets you use clean URLs like:
                                                                   
 
                                                                   
@@ -94,13 +92,13 @@ setting.
 <pre class='verbatim' id='verbatim-4'>
 https://username.github.io/repo/
 </pre>     
-<!-- l. 117 --><p class='nopar'>
+<!--  l. 117  --><p class='nopar'>
 </p>     
 </li></ul>
-<!-- l. 122 --><p class='indent'>   There’s no need to specify the filename in the link — GitHub Pages automatically
+<!--  l. 122  --><p class='indent'>   There’s no need to specify the filename in the link — GitHub Pages automatically
 looks for <span class='ec-lmtt-10'>index.html </span>by default. This makes it easier to share the presentation and
 helps avoid broken links due to filename mismatches.
-</p><!-- l. 126 --><p class='indent'>   For example, this book is available at: <a class='url' href='https://michal-h21.github.io/tex4ht-booksite/'><span class='ec-lmtt-10'>https://michal-h21.github.io/tex4ht-booksite/</span></a>.
+</p><!--  l. 126  --><p class='indent'>   For example, this book is available at: <a class='url' href='https://michal-h21.github.io/tex4ht-booksite/'><span class='ec-lmtt-10'>https://michal-h21.github.io/tex4ht-booksite/</span></a>.
                                                                   
 
                                                                   
