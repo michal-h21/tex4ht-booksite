@@ -11,7 +11,7 @@ attend.
 
 ## Documentation
 
-You can find the documentation and usage examples [here](https://www.kodymirus.cz/tex4ht-presentation/).
+You can find the documentation and usage examples [here](https://www.kodymirus.cz/tex4ht-booksite/).
 
 
 ## License
