@@ -1,5 +1,11 @@
+// This script handles the Table of Contents (TOC) functionality for the documentation pages.
+  
+// hide sectionTocs by default
+document.write('<style>nav.TOC span.sectionToc {display: none;}</style>');
+
 document.addEventListener('DOMContentLoaded', function() {
   const chapterTocs = document.querySelectorAll('nav.TOC span.chapterToc');
+
   
   function handleChapterTocClick(event) {
     const nextElement = this.nextElementSibling;
@@ -20,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
   chapterTocs.forEach(function(chapterToc) {
     chapterToc.addEventListener('click', handleChapterTocClick);
   });
-  
+
   // Check current page on load
   const currentPage = window.location.pathname.split('/').pop();
   const navLinks = document.querySelectorAll('nav.TOC a[href]');
