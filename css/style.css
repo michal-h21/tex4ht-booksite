@@ -17,6 +17,8 @@
   --footer-background: #B8D8D5;
   --header-color: #2C3E50;  
   --header-height: 3rem;
+  --hamburger-color: var(--header-background);
+  --hamburger-background: var(--header-color);
   --header-padding: 1ch; --page-width: calc(var(--maintoc-total) + var(--main-content-width) + var(--content-padding) * 2 + var(--sectiontoc-width) + var(--content-padding) * 2);
 }
 
@@ -166,6 +168,8 @@ nav.TOC span.chapterToc.clicked ~ span.chapterToc ~ span.sectionToc{
   font-size: 2rem;
   gap: 6px; 
   margin-left: auto;
+  color: var(--hamburger-color);
+  background-color: var(--hamburger-background);
 }
 
 
