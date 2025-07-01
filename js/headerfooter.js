@@ -52,6 +52,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const menuToggle = document.querySelector('button.hamburger');
+  // const menuToggle = document.getElementById('menu-toggle');
+  const toc = document.querySelector('nav.TOC');
+
+  menuToggle?.addEventListener('click', function (event) {
+    event.stopPropagation(); // will prevent the click from bubbling up to the document
+    toc.classList.toggle('open');
+
+    if (toc.classList.contains('open')) {
+      toc.style.transform = "translateX(0)";
+      document.body.classList.add('no-scroll');
+    } else {
+      toc.style.transform = "translateX(-100%)";
+      document.body.classList.remove('no-scroll');
+    }
+  });
+
+
   window.addEventListener("scroll", () => {
     updateHeaderAndMenu();
     updateFooter();

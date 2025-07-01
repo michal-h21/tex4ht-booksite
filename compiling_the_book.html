@@ -22,18 +22,15 @@ Pages</a></span>
 <nav class='crosslinks-top'> [<a href='automated_html_output.html'>next</a>] [<a href='basic_usage.html'>prev</a>] [<a href='basic_usage.html#tailbasic_usage.html'>prev-tail</a>] [<a href='#tailcompiling_the_book.html'>tail</a>] [<a href='index.html#compiling_the_book.html'>up</a>] </nav> 
 <h2 class='chapterHead' id='compiling-the-book'><span class='titlemark'>Chapter 3</span><br /><a id='x4-40003'></a>Compiling the Book</h2>
 You can compile the output files using any standard LaTeX distribution which
-includes  <a href='https://www.tug.org/tex4ht/'>TeX4ht</a>.
+includes <a href='https://www.tug.org/tex4ht/'>TeX4ht</a>.
                                                                   
 
                                                                   
 <pre class='verbatim' id='verbatim-1'>
-$ make4ht -l book.tex
+$ make4ht -e build.lua -c config.cfg -lj index -d out document.tex
 </pre>
-<!--  l. 43  --><p class='nopar'>
-</p><!--  l. 45  --><p class='indent'>   The <span class='obeylines-h'><code class='verb'>-l</code></span> option ensures that LuaLaTeX is used as the compiler.
-</p><!--  l. 48  --><p class='indent'>   The HTML version is built from the article-style handout, not the Beamer slides.
-This makes it better suited for the web or long-term sharing, since it includes all
-explanations and doesn’t depend on slide layout.
+<!--  l. 39  --><p class='nopar'>
+</p><!--  l. 41  --><p class='indent'>   The <span class='obeylines-h'><code class='verb'>-l</code></span> option ensures that LuaLaTeX is used as the compiler.
                                                                   
 
                                                                   
