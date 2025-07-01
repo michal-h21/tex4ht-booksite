@@ -29,25 +29,18 @@ clone it, customize the content, and start building your own slides and
 handouts.
 
 
-
-
-
-
 \chapter{Compiling the Book}
 
 
 You can compile the output files using any standard \LaTeX\ distribution which includes \href{https://www.tug.org/tex4ht/}{\TeX4ht}.
 
 \begin{verbatim}
-$ make4ht -l book.tex    
+$ make4ht -e build.lua -c config.cfg -lj index -d out document.tex
 \end{verbatim}
 
 The \verb|-l| option  ensures that Lua\LaTeX\ is used as the compiler. 
 
 
-The HTML version is built from the article-style handout, not the Beamer slides.
-This makes it better suited for the web or long-term sharing, since it includes
-all explanations and doesn’t depend on slide layout.
 
 \chapter{Automated HTML Output}
 
