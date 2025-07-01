@@ -1,22 +1,22 @@
 :root{
   --maintoc-width: 30ch;
-  --content-padding: 2ch;
   --maintoc-padding: var(--content-padding);
   --maintoc-total: calc(var(--maintoc-width));
-  --main-content-width: 80ch;
-  --header-height: 6ch;
-  --footer-height: 6ch;
-  --sectiontoc-padding: calc(var(--maintoc-total) + var(--main-content-width) + var(--content-padding) * 2);
-  --sectiontoc-width: var(--maintoc-width);
   --maintoc-background: #2E3A3F;
   --maintoc-padding: 2ch;
   --maintoc-color: #E6F0EF;
   --maintoc-hover: #00AFA0;
-  --body-padding: 2ch;
+  --main-content-width: 80ch;
+  --content-padding: 2ch;
   --header-background: #B8D8D5;
-  --footer-background: #B8D8D5;
   --header-color: #2C3E50;  
   --header-height: 3rem;
+  --footer-height: 6ch;
+  --sectiontoc-padding: calc(var(--maintoc-total) + var(--main-content-width) + var(--content-padding) * 2);
+  --sectiontoc-width: var(--maintoc-width);
+  --body-padding: 2ch;
+  --footer-background: #B8D8D5;
+  --footer-color: #2C3E50;
   --hamburger-color: var(--header-background);
   --hamburger-background: var(--header-color);
   --header-padding: 1ch; --page-width: calc(var(--maintoc-total) + var(--main-content-width) + var(--content-padding) * 2 + var(--sectiontoc-width) + var(--content-padding) * 2);
@@ -82,6 +82,7 @@ footer {
   left: 0;
   right: 0;
   height: var(--footer-height);
+  color: var(--footer-color);
   background-color: var(--footer-background);
   z-index: 1000;
   display: flex;
