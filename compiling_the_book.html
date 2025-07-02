@@ -12,25 +12,38 @@
 </head><body>
 <header class='header-bar'> 
 <h1><a href='index.html'>TeX4ht Template for Online Books</a></h1><button class='hamburger'>≡</button> 
-</header> <nav class='TOC'><span class='chapterToc'><a href='introduction.html#introduction' id='QQ2-2-1'>1 Introduction</a></span><span class='chapterToc'><a href='basic_usage.html#basic-usage' id='QQ2-3-2'>2 Basic Usage</a></span><span class='chapterToc'><a href='#compiling-the-book' id='QQ2-4-5'>3 Compiling
-the Book</a></span><span class='chapterToc'><a href='automated_html_output.html#automated-html-output' id='QQ2-5-6'>4 Automated HTML Output</a></span><span class='chapterToc'><a href='github_pages.html#github-pages' id='QQ2-6-9'>5 Github
-Pages</a></span>
+</header> <nav class='TOC'><span class='chapterToc'><a href='introduction.html#introduction' id='QQ2-2-1'>1 Introduction</a></span><span class='chapterToc'><a href='basic_usage.html#basic-usage' id='QQ2-3-6'>2 Basic Usage</a></span><span class='chapterToc'><a href='#compiling-the-book' id='QQ2-4-8'>3 Compiling the Book</a></span><span class='chapterToc'><a href='automated_html_output.html#automated-html-output' id='QQ2-5-9'>4 Automated HTML
+Output</a></span><span class='chapterToc'><a href='github_pages.html#github-pages' id='QQ2-6-12'>5 Github Pages</a></span>
  
    
 </nav> 
 <main class='main-content'><article> 
 <nav class='crosslinks-top'> [<a href='automated_html_output.html'>next</a>] [<a href='basic_usage.html'>prev</a>] [<a href='basic_usage.html#tailbasic_usage.html'>prev-tail</a>] [<a href='#tailcompiling_the_book.html'>tail</a>] [<a href='index.html#compiling_the_book.html'>up</a>] </nav> 
-<h2 class='chapterHead' id='compiling-the-book'><span class='titlemark'>Chapter 3</span><br /><a id='x4-40003'></a>Compiling the Book</h2>
+<h2 class='chapterHead' id='compiling-the-book'><span class='titlemark'>Chapter 3</span><br /><a id='x4-70003'></a>Compiling the Book</h2>
 You can compile the output files using any standard LaTeX distribution which
 includes <a href='https://www.tug.org/tex4ht/'>TeX4ht</a>.
+<!--  l. 104  --><p class='indent'>   To compile the PDF version use LuaLaTeX:
                                                                   
 
                                                                   
+</p>   
 <pre class='verbatim' id='verbatim-1'>
+$ lualatex document.tex
+</pre>
+<!--  l. 108  --><p class='nopar'>
+</p><!--  l. 110  --><p class='indent'>   For the HTML version, you can use <a href='https://github.com/michal-h21/make4ht'>make4ht</a>, build system for TeX4ht.
+                                                                  
+
+                                                                  
+</p>   
+<pre class='verbatim' id='verbatim-2'>
 $ make4ht -e build.lua -c config.cfg -lj index -d out document.tex
 </pre>
-<!--  l. 39  --><p class='nopar'>
-</p><!--  l. 41  --><p class='indent'>   The <span class='obeylines-h'><code class='verb'>-l</code></span> option ensures that LuaLaTeX is used as the compiler.
+<!--  l. 114  --><p class='nopar'>
+</p><!--  l. 116  --><p class='indent'>   Since we need both a Lua build script (for make4ht) and a TeX4ht config file, this
+command ends up being a bit more involved.
+</p><!--  l. 118  --><p class='indent'>   The <span class='obeylines-h'><code class='verb'>-e build.lua</code></span> option loads the build file. It modifies the output fil The <span class='obeylines-h'><code class='verb'>-l</code></span>
+option ensures that LuaLaTeX is used as the compiler.
                                                                   
 
                                                                   
