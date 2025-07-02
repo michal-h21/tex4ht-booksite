@@ -11,22 +11,89 @@
 
 \chapter{Introduction}
 
+This template is designed to facilitate the export of each book chapter into a
+separate HTML page, making it ideal for publishing books, documentation, or
+lecture notes in a structured and easily navigable web format.
 
+\paragraph{Key Features:}
+
+\begin{itemize}
+  \item Modular Structure: Each chapter is converted into an independent HTML
+    file, improving load times and organization.
+
+  \item Seamless Navigation: Built-in links (previous/next chapter, table of contents in sidebar) ensure smooth reader navigation.
+
+  \item Customizable Styling: Supports CSS theming to match your project’s design (e.g., academic, technical, or minimalist).
+\end{itemize}
+
+\paragraph{Use Cases}
+
+\begin{itemize}
+  \item E-books / Online Textbooks – Publish course materials with chapter-based access.
+
+  \item Technical Documentation – Break long manuals into searchable sections.
+
+  \item Collaborative Projects – Combine multiple authors’ work into a unified web book.
+\end{itemize}
+
+\paragraph{How It Works}
+
+The template uses \href{https://tug.org/tex4ht/}{TeX4ht}, a LaTeX-to-HTML converter, to automate the
+splitting of .tex files while preserving cross-references, footnotes, and
+bibliographies. 
+
+\paragraph{Automation Features}
+\begin{itemize}
+    \item \textbf{GitHub Actions Integration}: 
+    \begin{itemize}
+        \item Automatic compilation triggered on every commit/push to the repository
+        \item Pre-configured workflow handles LaTeX → HTML conversion via \TeX4ht
+        \item Build status monitoring and error reporting
+    \end{itemize}
+    
+    \item \textbf{GitHub Pages Publishing}:
+    \begin{itemize}
+        \item Automatically deploys the compiled HTML output to GitHub Pages
+        \item Creates a publicly accessible website (\texttt{https://yourname.github.io/repository-name})
+        \item Supports custom domains if needed
+    \end{itemize}
+    
+    \item \textbf{Continuous Deployment}:
+    \begin{itemize}
+        \item Ensures the online version always matches the repository content
+    \end{itemize}
+\end{itemize}
 
 \chapter{Basic Usage}
 
-\section{Create a New Github Repository}
+To start your own online book using this template, click the "Use this
+template" button at the top of the
+\href{git@github.com:michal-h21/tex4ht-booksite.git}{GitHub repository page} (see figure~\ref{fig:template}).
+This will create a new repository in your account with the same structure and
+files. You can then clone it, customize the content, and start building your
+own book.
 
 \begin{figure}[htbp]
   \includegraphics[width=\textwidth,alt={Image of button for use of this repository as a template}]{img/template-use.png}
 \caption{Using the template to create a new repository}
+\label{fig:template}
 \end{figure}
 
-To start your own online book using this template, click the "Use this
-template" button at the top of the GitHub repository page. This will create a
-new repository in your account with the same structure and files. You can then
-clone it, customize the content, and start building your own slides and
-handouts.
+Your book's core content goes in \texttt{document.tex} (this file currently contains
+sample text that you'll replace with your own work).
+
+For larger projects, we recommend splitting content into separate files (one
+per chapter, for example) and including them using \verb|\include{filename}| commands.
+
+Remember:
+
+\begin{itemize}
+  \item Keep document.tex as your master file
+
+  \item The build process relies on this structure
+
+  \item All \verb|\include| paths should be relative to \texttt{document.tex}
+\end{itemize}
 
 
 \chapter{Compiling the Book}
@@ -34,10 +101,21 @@ handouts.
 
 You can compile the output files using any standard \LaTeX\ distribution which includes \href{https://www.tug.org/tex4ht/}{\TeX4ht}.
 
+To compile the PDF version use Lua\LaTeX:
+
+\begin{verbatim}
+$ lualatex document.tex
+\end{verbatim}
+
+For the HTML version, you can use \href{https://github.com/michal-h21/make4ht}{make4ht}, build system for \TeX4ht.
+
 \begin{verbatim}
 $ make4ht -e build.lua -c config.cfg -lj index -d out document.tex
 \end{verbatim}
 
+Since we need both a Lua build script (for make4ht) and a \TeX4ht config file, this command ends up being a bit more involved.
+
+The \verb|-e build.lua| option loads the build file. It modifies the output fil
 The \verb|-l| option  ensures that Lua\LaTeX\ is used as the compiler. 
 
 
