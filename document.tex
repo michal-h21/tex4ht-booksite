@@ -118,6 +118,58 @@ Since we need both a Lua build script (for make4ht) and a \TeX4ht config file, t
 The \verb|-e build.lua| option loads the build file. It modifies the output fil
 The \verb|-l| option  ensures that Lua\LaTeX\ is used as the compiler. 
 
+\chapter{Styling the Output}
+
+Most of the colors used in the template are defined through CSS variables,  
+which can be customized directly in the configuration file.
+
+
+An example how you could  change the output shows the following CSS rule. Add
+the following text to your \texttt{config.cfg} configuration file:
+
+\begin{verbatim}
+\Css{
+  body{
+    --maintoc-background: \#f0f0f0;
+    --maintoc-color: \#00AFA0;
+  }
+}
+\end{verbatim}
+
+The \verb|\Css| command allows you to insert raw CSS rules directly
+into the generated CSS file. The content is not read verbatim, so we need to escape special characters such as \texttt{\#} 
+or \texttt{\%}. Otherwise, they would cause compilation errors. In this case, we need to escape the hash sign
+used in hexadecimal color codes.
+
+Css variables are prefixed with \texttt{--} and can be set in a selector that is active in a whole document, such as \texttt{body}.
+In this example, we set the background and text color of the
+navigation menu. 
+
+\begin{figure}[htbp]
+  \includegraphics[width=\textwidth,alt={Image of customized page design}]{img/book-changecolor.png}
+  \caption{Customized page design with modified colors}
+\end{figure}
+
+
+Supported variables for adjusting the page design are following:
+
+\begin{description}
+  \item[maintoc]  
+    the navigation menu containing the document’s table of contents
+
+  \item[hamburger]  
+    the button used to open the hidden (collapsed) menu
+
+  \item[header]  
+    the top section of the document, typically containing the title or site navigation
+
+  \item[footer]  
+    the bottom section of the document, usually used for metadata or additional links
+\end{description}
+
+For each of these properties, you may define both the foreground and background colors  
+by appending \texttt{-color} and \texttt{-background} to the property name.
+
 
 
 \chapter{Automated HTML Output}
